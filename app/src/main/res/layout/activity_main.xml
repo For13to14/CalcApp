@@ -24,72 +24,72 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/button_7"
+                android:id="@+id/digit_seven_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_7_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_seven_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_8"
+                android:id="@+id/digit_eight_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_8_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_eight_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_9"
+                android:id="@+id/digit_nine_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_9_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_nine_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_addition"
+                android:id="@+id/add_operation_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_addition_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/add_operation_button_text"
+                android:textSize="@dimen/button_text_size" />
 
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/button_4"
+                android:id="@+id/digit_four_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_4_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_four_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_5"
+                android:id="@+id/digit_five_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_5_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_five_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_6"
+                android:id="@+id/digit_six_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_6_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_six_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_subtraction"
+                android:id="@+id/subtract_operation_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_subtraction_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/subtract_operation_button_text"
+                android:textSize="@dimen/button_text_size" />
         </TableRow>
 
         <TableRow
@@ -97,65 +97,65 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/button_1"
+                android:id="@+id/digit_one_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_1_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_one_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_2"
+                android:id="@+id/digit_two_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_2_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_two_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_3"
+                android:id="@+id/digit_three_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_3_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_three_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_multiplication"
+                android:id="@+id/multiply_operation_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_multiplication_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/multiply_operation_button_text"
+                android:textSize="@dimen/button_text_size" />
 
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/button_0"
+                android:id="@+id/digit_zero_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:layout_span="2"
-                android:text="@string/button_0_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/digit_zero_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_dot"
+                android:id="@+id/decimal_dot_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_dot_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/decimal_dot_button_text"
+                android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/button_division"
+                android:id="@+id/division_operation_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/button_division_text"
-                android:textSize="@dimen/button_text" />
+                android:text="@string/division_operation_button_text"
+                android:textSize="@dimen/button_text_size" />
 
         </TableRow>
 

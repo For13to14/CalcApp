@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">CalcApp</string>
-    <string name="button_7_text">7</string>
-    <string name="button_8_text">8</string>
-    <string name="button_9_text">9</string>
-    <string name="button_addition_text">+</string>
-    <string name="button_4_text">4</string>
-    <string name="button_5_text">5</string>
-    <string name="button_6_text">6</string>
-    <string name="button_subtraction_text">-</string>
-    <string name="button_1_text">1</string>
-    <string name="button_2_text">2</string>
-    <string name="button_3_text">3</string>
-    <string name="button_multiplication_text">x</string>
-    <string name="button_0_text">0</string>
-    <string name="button_dot_text">,</string>
-    <string name="button_division_text">/</string>
+    <string name="digit_seven_button_text">7</string>
+    <string name="digit_eight_button_text">8</string>
+    <string name="digit_nine_button_text">9</string>
+    <string name="add_operation_button_text">+</string>
+    <string name="digit_four_button_text">4</string>
+    <string name="digit_five_button_text">5</string>
+    <string name="digit_six_button_text">6</string>
+    <string name="subtract_operation_button_text">-</string>
+    <string name="digit_one_button_text">1</string>
+    <string name="digit_two_button_text">2</string>
+    <string name="digit_three_button_text">3</string>
+    <string name="multiply_operation_button_text">x</string>
+    <string name="digit_zero_button_text">0</string>
+    <string name="decimal_dot_button_text">,</string>
+    <string name="division_operation_button_text">/</string>
 </resources>
