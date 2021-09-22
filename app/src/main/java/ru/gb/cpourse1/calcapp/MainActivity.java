@@ -11,9 +11,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    private EditText calculatedExpressionEt;
-    private TextView resultTv;
-    private Button calculateBtn;
+    private EditText calculateExpressionEt;
+    private TextView calculatedResultTv;
+    private Button calcResultBtn;
 
     private Button digitZeroBtn;
     private Button digitOneBtn;
@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        calculateBtn = findViewById(R.id.calculate_result_button);
-        resultTv = findViewById(R.id.result_text_view);
-        calculatedExpressionEt = findViewById(R.id.calculated_expression_edit_text);
+        calculatedResultTv = findViewById(R.id.result_text_view);
+        calculateExpressionEt = findViewById(R.id.calculated_expression_edit_text);
+
         digitZeroBtn = findViewById(R.id.digit_zero_button);
         digitOneBtn = findViewById(R.id.digit_one_button);
         digitTwoBtn = findViewById(R.id.digit_two_button);
@@ -59,58 +59,65 @@ public class MainActivity extends AppCompatActivity {
         subOperationBtn = findViewById(R.id.subtract_operation_button);
         mulOperationBtn = findViewById(R.id.multiply_operation_button);
         divOperationBtn = findViewById(R.id.division_operation_button);
+        calcResultBtn = findViewById(R.id.calculate_result_button);
 
-        digitZeroBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'0'));
-        digitOneBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'1'));
-        digitTwoBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'2'));
-        digitThreeBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'3'));
-        digitFourBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'4'));
-        digitFiveBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'5'));
-        digitSixBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'6'));
-        digitSevenBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'7'));
-        digitEightBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'8'));
-        digitNineBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'9'));
-        decimalDotBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'.'));
+        digitZeroBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'0'));
+        digitOneBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'1'));
+        digitTwoBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'2'));
+        digitThreeBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'3'));
+        digitFourBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'4'));
+        digitFiveBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'5'));
+        digitSixBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'6'));
+        digitSevenBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'7'));
+        digitEightBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'8'));
+        digitNineBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'9'));
+        decimalDotBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString()+'.'));
 
         addOperationBtn.setOnClickListener(view -> {
 
-            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             if (CheckStringEmpty(localStringBuffer)) return;
-            DeleteRepetitiveDotesInString(localStringBuffer);
             ChangeOperation(localStringBuffer, '+');
-            calculatedExpressionEt.setText(localStringBuffer.toString());
+            calculateExpressionEt.setText(localStringBuffer.toString());
         });
 
         subOperationBtn.setOnClickListener(view -> {
 
-            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             if (CheckStringEmpty(localStringBuffer)) return;
-            DeleteRepetitiveDotesInString(localStringBuffer);
             ChangeOperation(localStringBuffer, '-');
-            calculatedExpressionEt.setText(localStringBuffer.toString());
+            calculateExpressionEt.setText(localStringBuffer.toString());
         });
 
         mulOperationBtn.setOnClickListener(view -> {
 
-            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             if (CheckStringEmpty(localStringBuffer)) return;
-            DeleteRepetitiveDotesInString(localStringBuffer);
             ChangeOperation(localStringBuffer, 'X');
-            calculatedExpressionEt.setText(localStringBuffer.toString());
+            calculateExpressionEt.setText(localStringBuffer.toString());
         });
 
         divOperationBtn.setOnClickListener(view -> {
 
-            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
+            if (CheckStringEmpty(localStringBuffer)) return;
+            ChangeOperation(localStringBuffer, '/');
+            calculateExpressionEt.setText(localStringBuffer.toString());
+        });
+
+        calcResultBtn.setOnClickListener(view -> {
+
+            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             if (CheckStringEmpty(localStringBuffer)) return;
             DeleteRepetitiveDotesInString(localStringBuffer);
-            ChangeOperation(localStringBuffer, '/');
-            calculatedExpressionEt.setText(localStringBuffer.toString());
+            //TODO calculate method
+            calculatedResultTv.setText(localStringBuffer.toString());
         });
 
 
     }
 
+    //Check is string empty to avoid useless work
     public boolean CheckStringEmpty (StringBuilder localString) {
         if (localString.toString().isEmpty()) {
             Toast.makeText(this, "There is no operation", Toast.LENGTH_SHORT).show();
@@ -120,24 +127,33 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Delete repetitive decimal dots in numbers
     public StringBuilder DeleteRepetitiveDotesInString (StringBuilder localString) {
         boolean dotInTheString = false;
         for (int i = 0; i < localString.length(); i++) {
-            if (localString.charAt(i) == '.') {
+            switch (localString.charAt(i)) {
+                case '.':
                 if(dotInTheString) {
-                    localString.deleteCharAt(i);
-                    i--;
+                    localString.deleteCharAt(i--);
                 } else {
                     dotInTheString = true;
                 }
+                break;
+                case '+':
+                case '-':
+                case 'X':
+                case '/':
+                    dotInTheString = false;
             };
         }
         return localString;
     }
 
+    //Change math operation when user click operation buttons some consecutive times
     public StringBuilder ChangeOperation (StringBuilder localString, char operationSymbol) {
         int lastCharIndex = localString.length()-1;
         char lastSymbol = localString.charAt(lastCharIndex);
+        //if last symbol in the string is math operation - change it to the current operation (last checked)
         if (lastSymbol == '+' || lastSymbol == '-'|| lastSymbol == 'X'|| lastSymbol == '/') {
             localString.setCharAt(lastCharIndex, operationSymbol);
         } else localString.append(operationSymbol);
