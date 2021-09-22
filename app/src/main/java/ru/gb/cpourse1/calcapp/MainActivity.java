@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private Button digitEightBtn;
     private Button digitNineBtn;
     private Button decimalDotBtn;
+
     private Button addOperationBtn;
+    private Button subOperationBtn;
+    private Button mulOperationBtn;
+    private Button divOperationBtn;
     private StringBuilder localStringBuffer;
 
 
@@ -51,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         decimalDotBtn = findViewById(R.id.decimal_dot_button);
 
         addOperationBtn = findViewById(R.id.add_operation_button);
+        subOperationBtn = findViewById(R.id.subtract_operation_button);
+        mulOperationBtn = findViewById(R.id.multiply_operation_button);
+        divOperationBtn = findViewById(R.id.division_operation_button);
 
         digitZeroBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'0'));
         digitOneBtn.setOnClickListener(view -> calculatedExpressionEt.setText(calculatedExpressionEt.getText().toString()+'1'));
@@ -67,12 +75,49 @@ public class MainActivity extends AppCompatActivity {
         addOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            if (CheckStringEmpty(localStringBuffer)) return;
             DeleteRepetitiveDotesInString(localStringBuffer);
             ChangeOperation(localStringBuffer, '+');
             calculatedExpressionEt.setText(localStringBuffer.toString());
         });
 
+        subOperationBtn.setOnClickListener(view -> {
 
+            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            if (CheckStringEmpty(localStringBuffer)) return;
+            DeleteRepetitiveDotesInString(localStringBuffer);
+            ChangeOperation(localStringBuffer, '-');
+            calculatedExpressionEt.setText(localStringBuffer.toString());
+        });
+
+        mulOperationBtn.setOnClickListener(view -> {
+
+            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            if (CheckStringEmpty(localStringBuffer)) return;
+            DeleteRepetitiveDotesInString(localStringBuffer);
+            ChangeOperation(localStringBuffer, 'X');
+            calculatedExpressionEt.setText(localStringBuffer.toString());
+        });
+
+        divOperationBtn.setOnClickListener(view -> {
+
+            localStringBuffer = new StringBuilder(calculatedExpressionEt.getText().toString());
+            if (CheckStringEmpty(localStringBuffer)) return;
+            DeleteRepetitiveDotesInString(localStringBuffer);
+            ChangeOperation(localStringBuffer, '/');
+            calculatedExpressionEt.setText(localStringBuffer.toString());
+        });
+
+
+    }
+
+    public boolean CheckStringEmpty (StringBuilder localString) {
+        if (localString.toString().isEmpty()) {
+            Toast.makeText(this, "There is no operation", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public StringBuilder DeleteRepetitiveDotesInString (StringBuilder localString) {
@@ -98,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
         } else localString.append(operationSymbol);
         return localString;
     }
+
+
 
 
 
