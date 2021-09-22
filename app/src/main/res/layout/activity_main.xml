@@ -18,6 +18,53 @@
         android:layout_height="wrap_content"
         android:stretchColumns="*">
 
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/calculated_expression_edit_text"
+                android:inputType="numberDecimal"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginVertical="8dp"
+                android:textSize="32sp"
+                android:gravity="end"
+                android:textAlignment="gravity"
+                android:background="@color/gray_200"
+                android:layout_span="4"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/result_number_text_view"
+                android:layout_margin="2dp"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:text="0"
+                android:gravity="end"
+                android:textAlignment="gravity"
+                android:background="@color/gray_500"
+                android:layout_span="4"/>
+
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/calculate_result_button"
+                android:text="@string/calculation_result_button_text"
+                android:textSize="@dimen/button_text_size"
+                android:layout_span="4"/>
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
