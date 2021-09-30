@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="MissingDefaultResource">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="8dp"
+        android:layout_margin="2dp"
         app:layout_constraintBottom_toTopOf="@id/result_text_view"
         android:gravity="right"
         android:textSize="32sp"
@@ -38,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/calculated_expression_edit_text"
         app:layout_constraintBottom_toTopOf="@id/tableLayout"
         android:id="@+id/result_text_view"
-        android:layout_margin="8dp"
+        android:layout_margin="2dp"
         android:textColor="@color/white"
         android:gravity="right"
         android:textSize="32sp"
@@ -47,27 +48,16 @@
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/calculate_result_button"
         app:layout_constraintTop_toBottomOf="@id/result_text_view"
         app:layout_constraintBottom_toBottomOf="parent"
         android:stretchColumns="*">
 
-        <TableRow>
-
-            <Button
-                android:id="@+id/calculate_result_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_span="4"
-                android:text="@string/calculation_result_button_text"
-                android:textSize="@dimen/button_text_size" />
-        </TableRow>
-
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <Button
@@ -75,6 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_seven_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -83,6 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_eight_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -91,6 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_nine_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -99,6 +95,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/add_operation_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -111,6 +109,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_four_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -119,6 +119,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_five_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -127,6 +129,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_six_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -135,6 +139,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/subtract_operation_button_text"
                 android:textSize="@dimen/button_text_size" />
         </TableRow>
@@ -148,7 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_one_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -157,6 +164,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_two_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -165,6 +174,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_three_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -173,6 +184,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/multiply_operation_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -186,6 +199,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:layout_span="2"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/digit_zero_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -194,6 +209,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/decimal_dot_button_text"
                 android:textSize="@dimen/button_text_size" />
 
@@ -202,10 +219,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
+                android:insetTop="2dp"
+                android:insetBottom="0dp"
                 android:text="@string/division_operation_button_text"
                 android:textSize="@dimen/button_text_size" />
 
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/calculate_result_button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        app:layout_constraintLeft_toRightOf="@id/tableLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/result_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_margin="2dp"
+        android:insetTop="4dp"
+        android:insetBottom="0dp"
+        android:text="@string/calculation_result_button_text"
+        android:textSize="@dimen/button_text_size"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
