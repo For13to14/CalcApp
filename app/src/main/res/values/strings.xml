@@ -16,4 +16,6 @@
     <string name="decimal_dot_button_text">,</string>
     <string name="division_operation_button_text">/</string>
     <string name="calculation_result_button_text">=</string>
+    <string name="calculated_expression_et_hint">Expression to calculate</string>
+    <string name="result_text_view_hint">Result of calculate</string>
 </resources>

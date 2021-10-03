@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         divOperationBtn = findViewById(R.id.division_operation_button);
         calcResultBtn = findViewById(R.id.calculate_result_button);
 
+        //
         digitZeroBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString() + '0'));
         digitOneBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString() + '1'));
         digitTwoBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString() + '2'));
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         digitEightBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString() + '8'));
         digitNineBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString() + '9'));
         decimalDotBtn.setOnClickListener(view -> calculateExpressionEt.setText(calculateExpressionEt.getText().toString() + '.'));
+
 
         addOperationBtn.setOnClickListener(view -> {
 
@@ -167,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 case '/':
                     dotInTheString = false;
             }
-            ;
         }
         return localString;
     }
