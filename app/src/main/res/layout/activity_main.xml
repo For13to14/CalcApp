@@ -16,9 +16,9 @@
     <EditText
         android:id="@+id/calculated_expression_edit_text"
         style="@style/BaseView"
-        android:background="@color/color_primary"
         android:hint="@string/calculated_expression_et_hint"
         android:inputType="numberDecimal"
+
         app:layout_constraintBottom_toTopOf="@id/result_text_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -27,9 +27,9 @@
 
     <TextView
         android:id="@+id/result_text_view"
-        style="@style/BaseView"
-        android:background="@color/color_secondary"
+        style="@style/BaseView.Result"
         android:hint="@string/result_text_view_hint"
+
         app:layout_constraintBottom_toTopOf="@id/tableLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="*"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

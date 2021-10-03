@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -85,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             ChangeOperation(localStringBuffer, '+');
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
-
         subOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             ChangeOperation(localStringBuffer, '-');
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
-
         mulOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
             ChangeOperation(localStringBuffer, 'X');
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
-
         divOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -119,8 +117,9 @@ public class MainActivity extends AppCompatActivity {
             calculatedResultTv.setText(localStringBuffer.toString());
         });
 
-
     }
+
+
 
     //Saved user data
     @Override
@@ -134,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if(savedInstanceState != null && savedInstanceState.containsKey(STRING_KEY)) {
+        if (savedInstanceState != null && savedInstanceState.containsKey(STRING_KEY)) {
             parcelData = (ParcelData) savedInstanceState.getParcelable(STRING_KEY);
             calculateExpressionEt.setText(parcelData.getParcelString());
         }

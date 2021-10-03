@@ -3,6 +3,9 @@
     <color name="color_primary">#8B848A</color>
     <color name="color_secondary">#42475C</color>
     <color name="button_label_color">#FFFFFFFF</color>
+    <color name="color_primary_dark">#4D494C</color>
+    <color name="color_secondary_dark">#2B2F3E</color>
+    <color name="button_label_color_dark">#8A8A8A</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
