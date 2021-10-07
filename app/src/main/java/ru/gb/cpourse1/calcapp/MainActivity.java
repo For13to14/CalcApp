@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView calculatedResultTv;
 
     private StringBuilder localStringBuffer;
+    private final int ROUND_COUNT = 5;
 
     private static final String STRING_KEY = "string_key";
     private ParcelData parcelData = new ParcelData();
@@ -111,22 +115,10 @@ public class MainActivity extends AppCompatActivity {
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
 
-        calcResultBtn.setOnClickListener(view -> {
-
-            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
-            if (checkStringEmpty(localStringBuffer)) return;
-            deleteRepetitiveDotesInString(localStringBuffer);
-            deleteLastSymbolIfItOperation(localStringBuffer);
-
-            calculatedResultTv.setText(Double.toString(Calc.calculate(localStringBuffer)));
-
-        });
-
         cleanViewsBtn.setOnClickListener(View -> {
             calculateExpressionEt.setText("");
             calculatedResultTv.setText("");
         });
-
         deleteLastSymbolBtn.setOnClickListener(View -> {
             Editable calculateExpression = calculateExpressionEt.getText();
             int lengthOfExpression = calculateExpression.length();
@@ -136,6 +128,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        calcResultBtn.setOnClickListener(view -> {
+
+            localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
+            if (checkStringEmpty(localStringBuffer)) return;
+            deleteRepetitiveDotesInString(localStringBuffer);
+            deleteLastSymbolIfItOperation(localStringBuffer);
+
+            BigDecimal result = BigDecimal.valueOf(Calc.calculate(localStringBuffer));
+            result = result.setScale(ROUND_COUNT, RoundingMode.HALF_UP);
+            calculatedResultTv.setText(result.toString());
+
+        });
     }
 
 
