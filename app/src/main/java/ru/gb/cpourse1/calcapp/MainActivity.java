@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.Editable;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,9 +15,29 @@ import java.math.RoundingMode;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private EditText calculateExpressionEt;
     private TextView calculatedResultTv;
+
+    private Button digitZeroBtn;
+    private Button digitOneBtn;
+    private Button digitTwoBtn;
+    private Button digitThreeBtn;
+    private Button digitFourBtn;
+    private Button digitFiveBtn;
+    private Button digitSixBtn;
+    private Button digitSevenBtn;
+    private Button digitEightBtn;
+    private Button digitNineBtn;
+
+    private Button decimalDotBtn;
+    private Button addOperationBtn;
+    private Button subOperationBtn;
+    private Button mulOperationBtn;
+    private Button divOperationBtn;
+
+    private Button calcResultBtn;
+    private Button cleanViewsBtn;
+    private Button deleteLastSymbolBtn;
 
     private StringBuilder localStringBuffer;
     private final int ROUND_COUNT = 5;
@@ -32,31 +51,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initViews();
+        initDigitButtons();
+        initOperationButtons();
+        initSpecialButtons();
+
+        handlingDigitButtons();
+        handlingOperationButtons();
+        handlingSpecialButtons();
+
+    }
+
+    private void initViews() {
         calculatedResultTv = findViewById(R.id.result_text_view);
         calculateExpressionEt = findViewById(R.id.calculated_expression_edit_text);
+    }
 
-        Button digitZeroBtn = findViewById(R.id.digit_zero_button);
-        Button digitOneBtn = findViewById(R.id.digit_one_button);
-        Button digitTwoBtn = findViewById(R.id.digit_two_button);
-        Button digitThreeBtn = findViewById(R.id.digit_three_button);
-        Button digitFourBtn = findViewById(R.id.digit_four_button);
-        Button digitFiveBtn = findViewById(R.id.digit_five_button);
-        Button digitSixBtn = findViewById(R.id.digit_six_button);
-        Button digitSevenBtn = findViewById(R.id.digit_seven_button);
-        Button digitEightBtn = findViewById(R.id.digit_eight_button);
-        Button digitNineBtn = findViewById(R.id.digit_nine_button);
-        Button decimalDotBtn = findViewById(R.id.decimal_dot_button);
+    private void initDigitButtons() {
+        digitZeroBtn = findViewById(R.id.digit_zero_button);
+        digitOneBtn = findViewById(R.id.digit_one_button);
+        digitTwoBtn = findViewById(R.id.digit_two_button);
+        digitThreeBtn = findViewById(R.id.digit_three_button);
+        digitFourBtn = findViewById(R.id.digit_four_button);
+        digitFiveBtn = findViewById(R.id.digit_five_button);
+        digitSixBtn = findViewById(R.id.digit_six_button);
+        digitSevenBtn = findViewById(R.id.digit_seven_button);
+        digitEightBtn = findViewById(R.id.digit_eight_button);
+        digitNineBtn = findViewById(R.id.digit_nine_button);
+        decimalDotBtn = findViewById(R.id.decimal_dot_button);
+    }
 
-        Button addOperationBtn = findViewById(R.id.add_operation_button);
-        Button subOperationBtn = findViewById(R.id.subtract_operation_button);
-        Button mulOperationBtn = findViewById(R.id.multiply_operation_button);
-        Button divOperationBtn = findViewById(R.id.division_operation_button);
+    private void initOperationButtons() {
+        addOperationBtn = findViewById(R.id.add_operation_button);
+        subOperationBtn = findViewById(R.id.subtract_operation_button);
+        mulOperationBtn = findViewById(R.id.multiply_operation_button);
+        divOperationBtn = findViewById(R.id.division_operation_button);
+    }
 
-        Button calcResultBtn = findViewById(R.id.calculate_result_button);
-        Button cleanViewsBtn = findViewById(R.id.clean_views_button);
-        Button deleteLastSymbolBtn = findViewById(R.id.delete_last_symbol_button);
+    private void initSpecialButtons() {
+        calcResultBtn = findViewById(R.id.calculate_result_button);
+        cleanViewsBtn = findViewById(R.id.clean_views_button);
+        deleteLastSymbolBtn = findViewById(R.id.delete_last_symbol_button);
+    }
 
-        //
+    private void handlingDigitButtons() {
         digitZeroBtn.setOnClickListener(view -> calculateExpressionEt.append("0"));
         digitOneBtn.setOnClickListener(view -> calculateExpressionEt.append("1"));
         digitTwoBtn.setOnClickListener(view -> calculateExpressionEt.append("2"));
@@ -68,8 +106,9 @@ public class MainActivity extends AppCompatActivity {
         digitEightBtn.setOnClickListener(view -> calculateExpressionEt.append("8"));
         digitNineBtn.setOnClickListener(view -> calculateExpressionEt.append("9"));
         decimalDotBtn.setOnClickListener(view -> calculateExpressionEt.append("."));
+    }
 
-
+    private void handlingOperationButtons() {
         addOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -87,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
             if (checkStringEmpty(localStringBuffer)) {
                 localStringBuffer.append('-');
                 calculateExpressionEt.setText(localStringBuffer.toString());
-            //check double subtract operation
+                //check double subtract operation
             } else if (localStringBuffer.charAt(localStringBuffer.length() - 1) != '-') {
                 localStringBuffer.append('-');
                 calculateExpressionEt.setText(localStringBuffer.toString());
@@ -114,7 +153,9 @@ public class MainActivity extends AppCompatActivity {
             changeOperation(localStringBuffer, '/');
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
+    }
 
+    private void handlingSpecialButtons() {
         cleanViewsBtn.setOnClickListener(View -> {
             calculateExpressionEt.setText("");
             calculatedResultTv.setText("");
@@ -127,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
                 calculateExpressionEt.setText(calculateExpression);
             }
         });
-
         calcResultBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -178,11 +218,14 @@ public class MainActivity extends AppCompatActivity {
         switch (lastSymbol) {
             case '+':
             case '-':
-                if (localString.charAt(lastCharIndex-1) == 'X' || localString.charAt(lastCharIndex-1) == '/') break;
+                if (localString.charAt(lastCharIndex - 1) == 'X' || localString.charAt(lastCharIndex - 1) == '/')
+                    break;
             case 'X':
             case '/':
-                localString.setCharAt(lastCharIndex, operationSymbol); break;
-            default: localString.append(operationSymbol);
+                localString.setCharAt(lastCharIndex, operationSymbol);
+                break;
+            default:
+                localString.append(operationSymbol);
         }
         return localString;
     }

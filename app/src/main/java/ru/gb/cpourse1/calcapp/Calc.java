@@ -30,9 +30,7 @@ public class Calc {
                     currentNumber *= scanner.nextDouble();
                     break;
                 case "/":
-                    //
                         currentNumber /= scanner.nextDouble();
-                   // } catch ()
                     break;
             }
         }
