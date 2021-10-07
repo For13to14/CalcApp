@@ -50,7 +50,8 @@ public class Calc {
             switch (expressionStringBuilder.charAt(i)) {
                 case '+':
                 case '-':
-                    if (expressionStringBuilder.charAt(i-1) == ' ' || i==0) break;
+                    if (i==0) break;
+                    else if(expressionStringBuilder.charAt(i-1) == ' ') break;
                 case 'X':
                 case '/':
                     expressionStringBuilder.insert(i, ' ');
