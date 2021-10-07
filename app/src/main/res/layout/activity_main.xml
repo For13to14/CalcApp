@@ -17,7 +17,6 @@
         android:id="@+id/calculated_expression_edit_text"
         style="@style/BaseView"
         android:hint="@string/calculated_expression_et_hint"
-        android:inputType="numberDecimal"
 
         app:layout_constraintBottom_toTopOf="@id/result_text_view"
         app:layout_constraintLeft_toLeftOf="parent"
