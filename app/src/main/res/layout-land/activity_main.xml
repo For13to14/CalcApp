@@ -16,35 +16,31 @@
         app:srcCompat="@drawable/background" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintVertical_weight="1"
         android:id="@+id/calculated_expression_edit_text"
+        style="@style/BaseView"
+        android:background="@color/color_primary"
+        android:hint="@string/calculated_expression_et_hint"
+
+
+        app:layout_constraintVertical_weight="1"
         android:inputType="numberDecimal"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="2dp"
-        app:layout_constraintBottom_toTopOf="@id/result_text_view"
-        android:gravity="right"
-        android:textSize="32sp"
-        android:background="@color/gray_200"/>
+        app:layout_constraintBottom_toTopOf="@id/result_text_view"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/result_text_view"
+        style="@style/BaseView"
+        android:background="@color/color_secondary"
+        android:hint="@string/result_text_view_hint"
+
         app:layout_constraintVertical_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calculated_expression_edit_text"
-        app:layout_constraintBottom_toTopOf="@id/tableLayout"
-        android:id="@+id/result_text_view"
-        android:layout_margin="2dp"
-        android:textColor="@color/white"
-        android:gravity="right"
-        android:textSize="32sp"
-        android:text="0"
-        android:background="@color/gray_500"/>
+        app:layout_constraintBottom_toTopOf="@id/tableLayout"/>
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -56,192 +52,140 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:stretchColumns="*">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <TableRow>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_seven_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_seven_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_seven_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_eight_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_eight_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_eight_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_nine_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_nine_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_nine_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_operation_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/add_operation_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton.Operations"
+                android:text="@string/add_operation_button_text"/>
 
         </TableRow>
 
         <TableRow>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_four_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_four_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_four_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_five_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_five_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_five_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_six_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_six_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_six_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/subtract_operation_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/subtract_operation_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton.Operations"
+                android:text="@string/subtract_operation_button_text"/>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TableRow>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_one_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_one_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_one_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_two_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_two_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_two_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_three_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/digit_three_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/digit_three_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/multiply_operation_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/multiply_operation_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton.Operations"
+                android:text="@string/multiply_operation_button_text"/>
 
         </TableRow>
 
         <TableRow>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_zero_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_span="2"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
+                style="@style/BaseButton"
                 android:text="@string/digit_zero_button_text"
-                android:textSize="@dimen/button_text_size" />
+                android:layout_span="2"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/decimal_dot_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/decimal_dot_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton"
+                android:text="@string/decimal_dot_button_text"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/division_operation_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:insetTop="2dp"
-                android:insetBottom="0dp"
-                android:text="@string/division_operation_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/BaseButton.Operations"
+                android:text="@string/division_operation_button_text"/>
 
         </TableRow>
 
     </TableLayout>
 
-    <Button
-        android:id="@+id/calculate_result_button"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clean_views_button"
+        style="@style/BaseButton.Operations"
+        android:text="@string/all_views_clean_button_text"
+
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+
+        app:layout_constraintLeft_toRightOf="@+id/tableLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_text_view"
+        app:layout_constraintBottom_toTopOf="@+id/delete_last_symbol_button"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete_last_symbol_button"
+        style="@style/BaseButton.Operations"
+        android:text="@string/delete_last_symbol_button_text"
+
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+
+        app:layout_constraintLeft_toRightOf="@+id/tableLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clean_views_button"
+        app:layout_constraintBottom_toTopOf="@+id/calculate_result_button"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calculate_result_button"
+        style="@style/BaseButton.Operations"
+        android:text="@string/calculation_result_button_text"
+
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
 
         app:layout_constraintLeft_toRightOf="@id/tableLayout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result_text_view"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/delete_last_symbol_button"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        android:layout_margin="2dp"
-        android:insetTop="4dp"
-        android:insetBottom="0dp"
-        android:text="@string/calculation_result_button_text"
-        android:textSize="@dimen/button_text_size"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

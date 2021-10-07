@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/default_margin</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="BaseButton.Operations">
+        <item name="android:backgroundTint">?attr/colorSecondary</item>
+    </style>
+
+    <style name="BaseView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_height</item>
+        <item name="android:layout_margin">@dimen/default_margin</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">@dimen/view_text_size</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="BaseView.Result">
+        <item name="android:backgroundTint">?attr/colorSecondary</item>
+    </style>
+
+</resources>
