@@ -19,4 +19,6 @@
     <string name="calculated_expression_et_hint">Expression to calculate</string>
     <string name="result_text_view_hint">Result of calculate</string>
     <string name="empty_string_toast_text">There is no operation</string>
+    <string name="delete_last_symbol_button_text">Del</string>
+    <string name="all_views_clean_button_text">AC</string>
 </resources>

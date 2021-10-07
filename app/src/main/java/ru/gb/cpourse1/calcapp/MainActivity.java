@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -45,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
         Button subOperationBtn = findViewById(R.id.subtract_operation_button);
         Button mulOperationBtn = findViewById(R.id.multiply_operation_button);
         Button divOperationBtn = findViewById(R.id.division_operation_button);
+
         Button calcResultBtn = findViewById(R.id.calculate_result_button);
+        Button cleanViewsBtn = findViewById(R.id.clean_views_button);
+        Button deleteLastSymbolBtn = findViewById(R.id.delete_last_symbol_button);
 
         //
         digitZeroBtn.setOnClickListener(view -> calculateExpressionEt.append("0"));
@@ -115,6 +120,20 @@ public class MainActivity extends AppCompatActivity {
 
             calculatedResultTv.setText(Double.toString(Calc.calculate(localStringBuffer)));
 
+        });
+
+        cleanViewsBtn.setOnClickListener(View -> {
+            calculateExpressionEt.setText("");
+            calculatedResultTv.setText("");
+        });
+
+        deleteLastSymbolBtn.setOnClickListener(View -> {
+            Editable calculateExpression = calculateExpressionEt.getText();
+            int lengthOfExpression = calculateExpression.length();
+            if (lengthOfExpression != 0) {
+                calculateExpression = calculateExpression.delete(lengthOfExpression - 1, lengthOfExpression);
+                calculateExpressionEt.setText(calculateExpression);
+            }
         });
 
     }

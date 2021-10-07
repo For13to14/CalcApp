@@ -17,6 +17,8 @@
         android:id="@+id/calculated_expression_edit_text"
         style="@style/BaseView"
         android:hint="@string/calculated_expression_et_hint"
+        android:enabled="false"
+
 
         app:layout_constraintBottom_toTopOf="@id/result_text_view"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -49,10 +51,22 @@
         <TableRow>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/clean_views_button"
+                android:text="@string/all_views_clean_button_text"
+                style="@style/BaseButton.Operations"
+                android:layout_span="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_last_symbol_button"
+                android:text="@string/delete_last_symbol_button_text"
+                style="@style/BaseButton.Operations"
+                android:layout_span="1"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/calculate_result_button"
                 android:text="@string/calculation_result_button_text"
                 style="@style/BaseButton.Operations"
-                android:layout_span="4"/>
+                android:layout_span="2"/>
         </TableRow>
 
         <TableRow>
