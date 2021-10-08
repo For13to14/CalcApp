@@ -1,16 +1,12 @@
 package ru.gb.cpourse1.calcapp;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.Toast;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
@@ -28,11 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         darkThemeSwitch = findViewById(R.id.dark_theme_switch);
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            darkThemeSwitch.setChecked(true);
-        } else {
-            darkThemeSwitch.setChecked(false);
-        }
+        darkThemeSwitch.setChecked(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES);
 
         darkThemeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked)  {
