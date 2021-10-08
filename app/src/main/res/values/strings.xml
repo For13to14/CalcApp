@@ -21,6 +21,5 @@
     <string name="empty_string_toast_text">There is no operation</string>
     <string name="delete_last_symbol_button_text">Del</string>
     <string name="all_views_clean_button_text">AC</string>
-    <string name="back_navigation_button_text">BACK</string>
     <string name="dark_theme_switch_text">Dark theme</string>
 </resources>

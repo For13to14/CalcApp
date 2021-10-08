@@ -16,7 +16,6 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 public class SettingsActivity extends AppCompatActivity {
 
     private SwitchMaterial darkThemeSwitch;
-    private Button backNavigationButton;
     private final String SWITCH_STATE_KEY = "switch_state_key";
 
 
@@ -26,7 +25,6 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         darkThemeSwitch = findViewById(R.id.dark_theme_switch);
-        backNavigationButton = findViewById(R.id.back_navigation_button);
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             darkThemeSwitch.setChecked(true);
         } else {
