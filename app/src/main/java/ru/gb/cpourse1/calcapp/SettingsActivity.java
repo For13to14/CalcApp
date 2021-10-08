@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -17,6 +18,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     private SwitchMaterial darkThemeSwitch;
     private final String SWITCH_STATE_KEY = "switch_state_key";
+
+    private Button findActivityBtn;
 
 
     @Override
@@ -37,6 +40,13 @@ public class SettingsActivity extends AppCompatActivity {
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
+        });
+
+        findActivityBtn = findViewById(R.id.find_activity_by_intent_button);
+        findActivityBtn.setOnClickListener(view -> {
+            Intent calculateIntent = new Intent();
+            calculateIntent.setAction("ru.gb.intent.action.CALCULATE");
+            startActivity(calculateIntent);
         });
     }
 
