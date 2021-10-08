@@ -148,6 +148,7 @@
 
                 app:iconTint="@color/button_label_color"
                 app:iconGravity="textEnd"
+
                 app:icon="@drawable/ic_baseline_settings_24"
                 android:layout_span="1"/>
 

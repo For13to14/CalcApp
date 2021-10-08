@@ -3,6 +3,7 @@ package ru.gb.cpourse1.calcapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button calcResultBtn;
     private Button cleanViewsBtn;
     private Button deleteLastSymbolBtn;
+    private Button settingsActivityBtn;
 
     private StringBuilder localStringBuffer;
     private final int ROUND_COUNT = 5;
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         calcResultBtn = findViewById(R.id.calculate_result_button);
         cleanViewsBtn = findViewById(R.id.clean_views_button);
         deleteLastSymbolBtn = findViewById(R.id.delete_last_symbol_button);
+        settingsActivityBtn = findViewById(R.id.settings_activity_button);
     }
 
     private void handlingDigitButtons() {
@@ -168,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 calculateExpressionEt.setText(calculateExpression);
             }
         });
-        calcResultBtn.setOnClickListener(view -> {
+        calcResultBtn.setOnClickListener(View -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             if (checkStringEmpty(localStringBuffer)) return;
@@ -179,6 +182,10 @@ public class MainActivity extends AppCompatActivity {
             result = result.setScale(ROUND_COUNT, RoundingMode.HALF_UP);
             calculatedResultTv.setText(result.toString());
 
+        });
+        settingsActivityBtn.setOnClickListener(View -> {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         });
     }
 

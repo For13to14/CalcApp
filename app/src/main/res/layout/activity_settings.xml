@@ -15,7 +15,8 @@
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/dark_theme_switch"
         style="@style/Switch"
-        android:text="Dark theme"
+        android:text="@string/dark_theme_switch_text"
+        android:trackTint="@color/color_secondary"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
