@@ -4,20 +4,25 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ParcelData implements Parcelable {
-    private String parcelString;
 
-    public ParcelData() {
+    private String expressionParcelString;
+    private String resultParcelString;
+
+    ParcelData() {
 
     }
 
-    public ParcelData(Parcel in) {
-        parcelString = in.readString();
+    ParcelData(String expressionParcelString, String resultParcelString) {
+        this.setExpressionParcelString(expressionParcelString);// = parcelString;
+        this.setResultParcelString(resultParcelString);// = resultParcelString;
     }
 
     public static final Creator<ParcelData> CREATOR = new Creator<ParcelData>() {
         @Override
         public ParcelData createFromParcel(Parcel in) {
-            return new ParcelData(in);
+            String expressionParcelString = in.readString();
+            String resultParcelString = in.readString();
+            return new ParcelData(expressionParcelString, resultParcelString);
         }
 
         @Override
@@ -26,12 +31,20 @@ public class ParcelData implements Parcelable {
         }
     };
 
-    public String getParcelString() {
-        return parcelString;
+    public String getExpressionParcelString() {
+        return expressionParcelString;
     }
 
-    public void setParcelString(String parcelString) {
-        this.parcelString = parcelString;
+    public void setExpressionParcelString(String expressionParcelString) {
+        this.expressionParcelString = expressionParcelString;
+    }
+
+    public String getResultParcelString() {
+        return resultParcelString;
+    }
+
+    public void setResultParcelString(String resultParcelString) {
+        this.resultParcelString = resultParcelString;
     }
 
     @Override
@@ -41,6 +54,7 @@ public class ParcelData implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int i) {
-        dest.writeString(parcelString);
+        dest.writeString(expressionParcelString);
+        dest.writeString(resultParcelString);
     }
 }

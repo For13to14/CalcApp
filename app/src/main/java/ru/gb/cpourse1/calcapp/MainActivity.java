@@ -3,6 +3,7 @@ package ru.gb.cpourse1.calcapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.widget.Button;
@@ -38,11 +39,12 @@ public class MainActivity extends AppCompatActivity {
     private Button calcResultBtn;
     private Button cleanViewsBtn;
     private Button deleteLastSymbolBtn;
+    private Button settingsActivityBtn;
 
     private StringBuilder localStringBuffer;
     private final int ROUND_COUNT = 5;
 
-    private static final String STRING_KEY = "string_key";
+    private static final String VIEWS_STRINGS_KEY = "views_strings_key";
     private ParcelData parcelData = new ParcelData();
 
 
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         calcResultBtn = findViewById(R.id.calculate_result_button);
         cleanViewsBtn = findViewById(R.id.clean_views_button);
         deleteLastSymbolBtn = findViewById(R.id.delete_last_symbol_button);
+        settingsActivityBtn = findViewById(R.id.settings_activity_button);
     }
 
     private void handlingDigitButtons() {
@@ -168,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 calculateExpressionEt.setText(calculateExpression);
             }
         });
-        calcResultBtn.setOnClickListener(view -> {
+        calcResultBtn.setOnClickListener(View -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             if (checkStringEmpty(localStringBuffer)) return;
@@ -180,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
             calculatedResultTv.setText(result.toString());
 
         });
+        settingsActivityBtn.setOnClickListener(View -> {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 
 
@@ -187,17 +194,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        parcelData.setParcelString(calculateExpressionEt.getText().toString());
-        calculateExpressionEt.setText("");
-        outState.putParcelable(STRING_KEY, parcelData);
+        parcelData.setExpressionParcelString(calculateExpressionEt.getText().toString());
+        parcelData.setResultParcelString(calculatedResultTv.getText().toString());
+        outState.putParcelable(VIEWS_STRINGS_KEY, parcelData);
+
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if (savedInstanceState != null && savedInstanceState.containsKey(STRING_KEY)) {
-            parcelData = savedInstanceState.getParcelable(STRING_KEY);
-            calculateExpressionEt.setText(parcelData.getParcelString());
+        if (savedInstanceState != null && savedInstanceState.containsKey(VIEWS_STRINGS_KEY)) {
+            parcelData = savedInstanceState.getParcelable(VIEWS_STRINGS_KEY);
+            calculateExpressionEt.setText(parcelData.getExpressionParcelString());
+            calculatedResultTv.setText(parcelData.getResultParcelString());
         }
 
     }

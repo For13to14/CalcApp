@@ -143,10 +143,20 @@
         <TableRow>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_activity_button"
+                style="@style/BaseButton.Operations"
+
+                app:iconTint="@color/button_label_color"
+                app:iconGravity="textEnd"
+
+                app:icon="@drawable/ic_baseline_settings_24"
+                android:layout_span="1"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_zero_button"
                 style="@style/BaseButton"
                 android:text="@string/digit_zero_button_text"
-                android:layout_span="2"/>
+                android:layout_span="1"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/decimal_dot_button"
