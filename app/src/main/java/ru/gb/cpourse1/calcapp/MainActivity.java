@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private StringBuilder localStringBuffer;
     private final int ROUND_COUNT = 5;
 
-    private static final String STRING_KEY = "string_key";
+    private static final String VIEWS_STRINGS_KEY = "views_strings_key";
     private ParcelData parcelData = new ParcelData();
 
 
@@ -194,17 +194,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        parcelData.setParcelString(calculateExpressionEt.getText().toString());
-        calculateExpressionEt.setText("");
-        outState.putParcelable(STRING_KEY, parcelData);
+        parcelData.setExpressionParcelString(calculateExpressionEt.getText().toString());
+        parcelData.setResultParcelString(calculatedResultTv.getText().toString());
+        outState.putParcelable(VIEWS_STRINGS_KEY, parcelData);
+
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if (savedInstanceState != null && savedInstanceState.containsKey(STRING_KEY)) {
-            parcelData = savedInstanceState.getParcelable(STRING_KEY);
-            calculateExpressionEt.setText(parcelData.getParcelString());
+        if (savedInstanceState != null && savedInstanceState.containsKey(VIEWS_STRINGS_KEY)) {
+            parcelData = savedInstanceState.getParcelable(VIEWS_STRINGS_KEY);
+            calculateExpressionEt.setText(parcelData.getExpressionParcelString());
+            calculatedResultTv.setText(parcelData.getResultParcelString());
         }
 
     }
