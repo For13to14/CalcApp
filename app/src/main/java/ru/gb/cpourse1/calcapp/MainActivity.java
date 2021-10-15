@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         initOperationButtons();
         initSpecialButtons();
 
-        handlingDigitButtons();
+        initClickDigitButtons();
         handlingOperationButtons();
         handlingSpecialButtons();
 
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         settingsActivityBtn = findViewById(R.id.settings_activity_button);
     }
 
-    private void handlingDigitButtons() {
+    private void initClickDigitButtons() {
         digitZeroBtn.setOnClickListener(view -> calculateExpressionEt.append("0"));
         digitOneBtn.setOnClickListener(view -> calculateExpressionEt.append("1"));
         digitTwoBtn.setOnClickListener(view -> calculateExpressionEt.append("2"));
