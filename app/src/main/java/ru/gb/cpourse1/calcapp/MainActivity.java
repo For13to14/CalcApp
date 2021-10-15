@@ -44,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
     private StringBuilder localStringBuffer;
     private final int ROUND_COUNT = 5;
 
+    private final char ADD_OPERATION_CHAR = '+';
+    private final char SUB_OPERATION_CHAR = '-';
+    private final char MUL_OPERATION_CHAR = 'X';
+    private final char DIV_OPERATION_CHAR = '/';
+    private final char DECIMAL_DOT_CHAR = '.';
+
     private static final String VIEWS_STRINGS_KEY = "views_strings_key";
     private ParcelData parcelData = new ParcelData();
 
@@ -112,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handlingOperationButtons() {
+
         addOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -119,19 +126,20 @@ public class MainActivity extends AppCompatActivity {
                 emptyStringToast();
                 return;
             }
-            changeOperation(localStringBuffer, '+');
+            changeOperation(localStringBuffer, ADD_OPERATION_CHAR);
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
+
         subOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
             //check is first number negative
             if (checkStringEmpty(localStringBuffer)) {
-                localStringBuffer.append('-');
+                localStringBuffer.append(SUB_OPERATION_CHAR);
                 calculateExpressionEt.setText(localStringBuffer.toString());
                 //check double subtract operation
-            } else if (localStringBuffer.charAt(localStringBuffer.length() - 1) != '-') {
-                localStringBuffer.append('-');
+            } else if (localStringBuffer.charAt(localStringBuffer.length() - 1) != SUB_OPERATION_CHAR) {
+                localStringBuffer.append(SUB_OPERATION_CHAR);
                 calculateExpressionEt.setText(localStringBuffer.toString());
             }
         });
@@ -143,9 +151,10 @@ public class MainActivity extends AppCompatActivity {
                 emptyStringToast();
                 return;
             }
-            changeOperation(localStringBuffer, 'X');
+            changeOperation(localStringBuffer, MUL_OPERATION_CHAR);
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
+
         divOperationBtn.setOnClickListener(view -> {
 
             localStringBuffer = new StringBuilder(calculateExpressionEt.getText().toString());
@@ -153,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 emptyStringToast();
                 return;
             }
-            changeOperation(localStringBuffer, '/');
+            changeOperation(localStringBuffer, DIV_OPERATION_CHAR);
             calculateExpressionEt.setText(localStringBuffer.toString());
         });
     }
@@ -178,7 +187,8 @@ public class MainActivity extends AppCompatActivity {
             deleteRepetitiveDotesInString(localStringBuffer);
             deleteLastSymbolIfItOperation(localStringBuffer);
 
-            BigDecimal result = BigDecimal.valueOf(Calc.calculate(localStringBuffer));
+            Calc calc = new Calc();
+            BigDecimal result = BigDecimal.valueOf(calc.calculate(localStringBuffer));
             result = result.setScale(ROUND_COUNT, RoundingMode.HALF_UP);
             calculatedResultTv.setText(result.toString());
 
@@ -225,12 +235,12 @@ public class MainActivity extends AppCompatActivity {
         int lastCharIndex = localString.length() - 1;
         char lastSymbol = localString.charAt(lastCharIndex);
         switch (lastSymbol) {
-            case '+':
-            case '-':
-                if (localString.charAt(lastCharIndex - 1) == 'X' || localString.charAt(lastCharIndex - 1) == '/')
+            case ADD_OPERATION_CHAR:
+            case SUB_OPERATION_CHAR:
+                if (localString.charAt(lastCharIndex - 1) == MUL_OPERATION_CHAR || localString.charAt(lastCharIndex - 1) == DIV_OPERATION_CHAR)
                     break;
-            case 'X':
-            case '/':
+            case MUL_OPERATION_CHAR:
+            case DIV_OPERATION_CHAR:
                 localString.setCharAt(lastCharIndex, operationSymbol);
                 break;
             default:
@@ -244,17 +254,17 @@ public class MainActivity extends AppCompatActivity {
         boolean dotInTheString = false;
         for (int i = 0; i < localString.length(); i++) {
             switch (localString.charAt(i)) {
-                case '.':
+                case DECIMAL_DOT_CHAR:
                     if (dotInTheString) {
                         localString.deleteCharAt(i--);
                     } else {
                         dotInTheString = true;
                     }
                     break;
-                case '+':
-                case '-':
-                case 'X':
-                case '/':
+                case ADD_OPERATION_CHAR:
+                case SUB_OPERATION_CHAR:
+                case MUL_OPERATION_CHAR:
+                case DIV_OPERATION_CHAR:
                     dotInTheString = false;
             }
         }
@@ -263,10 +273,10 @@ public class MainActivity extends AppCompatActivity {
 
     public StringBuilder deleteLastSymbolIfItOperation(StringBuilder localString) {
         switch (localString.charAt(localString.length() - 1)) {
-            case '+':
-            case '-':
-            case 'X':
-            case '/':
+            case ADD_OPERATION_CHAR:
+            case SUB_OPERATION_CHAR:
+            case MUL_OPERATION_CHAR:
+            case DIV_OPERATION_CHAR:
                 localString.deleteCharAt(localString.length() - 1);
                 break;
             default:

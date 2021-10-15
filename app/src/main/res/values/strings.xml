@@ -1,26 +1,32 @@
 <resources>
     <string name="app_name">CalcApp</string>
-    <string name="digit_seven_button_text">7</string>
-    <string name="digit_eight_button_text">8</string>
-    <string name="digit_nine_button_text">9</string>
-    <string name="add_operation_button_text">+</string>
-    <string name="digit_four_button_text">4</string>
-    <string name="digit_five_button_text">5</string>
-    <string name="digit_six_button_text">6</string>
-    <string name="subtract_operation_button_text">-</string>
+
+    <string name="digit_zero_button_text">0</string>
     <string name="digit_one_button_text">1</string>
     <string name="digit_two_button_text">2</string>
     <string name="digit_three_button_text">3</string>
+    <string name="digit_four_button_text">4</string>
+    <string name="digit_five_button_text">5</string>
+    <string name="digit_six_button_text">6</string>
+    <string name="digit_seven_button_text">7</string>
+    <string name="digit_eight_button_text">8</string>
+    <string name="digit_nine_button_text">9</string>
+
+    <string name="add_operation_button_text">+</string>
+    <string name="subtract_operation_button_text">-</string>
     <string name="multiply_operation_button_text">x</string>
-    <string name="digit_zero_button_text">0</string>
-    <string name="decimal_dot_button_text">,</string>
     <string name="division_operation_button_text">/</string>
+
     <string name="calculation_result_button_text">=</string>
+    <string name="decimal_dot_button_text">,</string>
+    <string name="delete_last_symbol_button_text">Del</string>
+    <string name="all_views_clean_button_text">AC</string>
+
+    <string name="dark_theme_switch_text">Dark theme</string>
+    <string name="find_activity_by_intent_button_text">Calculate</string>
+
     <string name="calculated_expression_et_hint">Expression to calculate</string>
     <string name="result_text_view_hint">Result of calculate</string>
     <string name="empty_string_toast_text">There is no operation</string>
-    <string name="delete_last_symbol_button_text">Del</string>
-    <string name="all_views_clean_button_text">AC</string>
-    <string name="dark_theme_switch_text">Dark theme</string>
-    <string name="find_activity_by_intent_button_text">Calculate</string>
+
 </resources>
